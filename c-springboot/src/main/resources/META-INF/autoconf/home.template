@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>${home.title}</title>
+</head>
+<body>
+	<div class="container">
+		<div class="pull-right">
+			<a href="/">销售趋势</a>
+			<a href="list.html">销售清单</a>
+		</div>
+		<!-- center content -->
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+			    <div id="main" style="height:550px"></div>
+			    <!-- ECharts单文件引入 -->
+			    <script src="/build/dist/echarts.js"></script>
+				<script type="text/javascript" src="/easyui/jquery.min.js"></script>
+			    <script type="text/javascript">
+			    /*<![CDATA[*/
+			        // 路径配置
+			        require.config({
+			            paths: {
+			                echarts: '/build/dist'
+			            }
+			        });
+			        
+			        // 使用
+			        require(
+			            [
+			                'echarts',
+			                'echarts/chart/pie',
+			                'echarts/chart/line'
+			            ],
+			            function (ec) {
+			                // 基于准备好的dom，初始化echarts图表
+			                var myChart = ec.init(document.getElementById('main'),'macarons'); 
+			                //窗体自适应    
+			 				window.onresize = myChart.resize;
+			                
+			 				$.ajax( { 
+			 				    url:'/model/month',// 跳转到 action 
+			 				    type:'post', 
+			 				    cache:false,
+			 				    dataType:'json', 
+			 				    success:function(data) {
+					                // 为echarts对象加载数据 
+					                myChart.setOption(data); 
+			 				     }, 
+			 				     error : function() { 
+			 				          alert("服务器异常，请重试！"); 
+			 				     } 
+			 				});
+			            }
+			        );
+				    /*]]>*/
+			    </script>
+				
+			</div>
+	</div>
+</body>
+</html>

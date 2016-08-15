@@ -5,10 +5,11 @@
         <property name="db.user" defaultValue="root" description="数据库用户名" />
         <property name="db.password" defaultValue="000000" description="数据库连接密码" />
     </group>
-    <group name="sales">
-        <property name="application.sales.month.message" defaultValue="\u9500\u552E\u8D8B\u52BF" description="首页标题" />
+    <group name="home">
+        <property name="home.title" defaultValue="销售统计" description="首页标题" />
     </group>
     <script>
-        <generate template="application.template" destfile="application.properties"/>
+        <generate template="application.template" destfile="application.yml"/>
+        <generate template="home.template" destfile="templates/messages/home.html"/>
     </script>
 </config>
