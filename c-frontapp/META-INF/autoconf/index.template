@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>${title}</title>
+</head>
+<body>
+    <h1>${body}</h1>
+    <h1>key1 = ${key1}</h1>
+    <h1>key2 = ${key2}</h1>
+    <h1>key3 = ${key3}</h1>
+    <h1>key4 = ${key4}</h1>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <group name="default">
+        <property name="title" defaultValue="Hello Title" description="" />
+        <property name="body" defaultValue="Hello Body" description="" />
+        <property name="key1" defaultValue="value1" description="" />
+        <property name="key2" defaultValue="12345" description="" />">
+        <property name="key3" defaultValue="true" description="" />
+        <property name="key4" defaultValue="你好啊！" description="" />
+    </group>
+    <script>
+        <generate template="index.template" destfile="html/index.html" />
+        <generate template="index.template" destfile="html/hello.html" />
+        <generate template="test.template" destfile="html/test.html" />
+        <generate template="test.template" destfile="html/world.html" />
+    </script>
+</config>
