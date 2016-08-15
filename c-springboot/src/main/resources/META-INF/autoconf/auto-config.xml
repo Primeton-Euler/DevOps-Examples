@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <group name="jdbc">
+        <property name="db.url" defaultValue="jdbc:mysql://192.168.2.81:3306/euler_iam?useUnicode=true&amp;characterEncoding=utf-8" description="数据库连接字符串" />
+        <property name="db.user" defaultValue="root" description="数据库用户名" />
+        <property name="db.password" defaultValue="000000" description="数据库连接密码" />
+    </group>
+    <group name="sales">
+        <property name="application.sales.month.message" defaultValue="\u9500\u552E\u8D8B\u52BF" description="首页标题" />
+    </group>
+    <script>
+        <generate template="application.template" destfile="application.properties"/>
+    </script>
+</config>

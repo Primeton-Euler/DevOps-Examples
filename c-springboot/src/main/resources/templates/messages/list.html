@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>销售清单</title>
+<link rel="stylesheet" type="text/css" href="/easyui/themes/default/easyui.css"></link>
+<link rel="stylesheet" type="text/css" href="/easyui/themes/icon.css"></link>
+<script type="text/javascript" src="/easyui/jquery.min.js"></script>
+<script type="text/javascript" src="/easyui/jquery.easyui.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="pull-right">
+	        <a href="javascript:void(0)" onclick="addItem()">创建销售单</a>
+	        <a href="javascript:void(0)" onclick="deleteItem()">删除销售单</a>
+	        <a href="/">返回</a>
+		</div>
+	    <table id ="dg" class="easyui-datagrid" data-options="singleSelect:true,method:'get'">
+	        <thead>
+	            <tr>
+	                <th data-options="field:'id',title:'销售单ID',width:'20%'">销售单ID</th>
+	                <th data-options="field:'code',title:'产品名称',width:'20%'">产品名称</th>
+	                <th data-options="field:'type',title:'销售阶段',align:'right',width:'20%'">销售阶段</th>
+	                <th data-options="field:'number',title:'销售额',align:'right',width:'20%'">销售额</th>
+	                <th data-options="field:'updateDate',title:'更新时间',width:'20%',
+					formatter: function(value,row,index){
+						if (row.updateDate){
+							var date = new Date(row.updateDate);
+							return date.pattern('yyyy-MM-dd hh:mm:ss');
+						} else {
+							return value;
+						}
+					}
+	                ">更新时间</th>
+	            </tr>
+	        </thead>
+	    </table>
+	    
+		<script type="text/javascript">
+		/**       
+		 * 对Date的扩展，将 Date 转化为指定格式的String       
+		 * 月(M)、日(d)、12小时(h)、24小时(H)、分(m)、秒(s)、周(E)、季度(q) 可以用 1-2 个占位符       
+		 * 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字)       
+		 * eg:       
+		 * (new Date()).pattern("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423       
+		 * (new Date()).pattern("yyyy-MM-dd E HH:mm:ss") ==> 2009-03-10 二 20:09:04       
+		 * (new Date()).pattern("yyyy-MM-dd EE hh:mm:ss") ==> 2009-03-10 周二 08:09:04       
+		 * (new Date()).pattern("yyyy-MM-dd EEE hh:mm:ss") ==> 2009-03-10 星期二 08:09:04       
+		 * (new Date()).pattern("yyyy-M-d h:m:s.S") ==> 2006-7-2 8:9:4.18       
+		 */          
+		Date.prototype.pattern=function(fmt) {           
+		    var o = {           
+		    "M+" : this.getMonth()+1, //月份           
+		    "d+" : this.getDate(), //日           
+		    "h+" : this.getHours()%12 == 0 ? 12 : this.getHours()%12, //小时           
+		    "H+" : this.getHours(), //小时           
+		    "m+" : this.getMinutes(), //分           
+		    "s+" : this.getSeconds(), //秒           
+		    "q+" : Math.floor((this.getMonth()+3)/3), //季度           
+		    "S" : this.getMilliseconds() //毫秒           
+		    };           
+		    var week = {           
+		    "0" : "/u65e5",           
+		    "1" : "/u4e00",           
+		    "2" : "/u4e8c",           
+		    "3" : "/u4e09",           
+		    "4" : "/u56db",           
+		    "5" : "/u4e94",           
+		    "6" : "/u516d"          
+		    };           
+		    if(/(y+)/.test(fmt)){           
+		        fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));           
+		    }           
+		    if(/(E+)/.test(fmt)){           
+		        fmt=fmt.replace(RegExp.$1, ((RegExp.$1.length>1) ? (RegExp.$1.length>2 ? "/u661f/u671f" : "/u5468") : "")+week[this.getDay()+""]);           
+		    }           
+		    for(var k in o){           
+		        if(new RegExp("("+ k +")").test(fmt)){           
+		            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));           
+		        }           
+		    }           
+		    return fmt;           
+		};
+		
+		$(document).ready(function() {
+			queryAll();
+		} );
+		
+		function queryAll(){
+			$.ajax( { 
+			    url:'/model/list',// 跳转到 action 
+			    type:'get', 
+			    cache:false, 
+			    dataType:'json', 
+			    success:function(data) {
+			    	var dataSet ={};
+			    	dataSet.rows = data;
+			    	//dataset.total = data.length;
+				    $('#dg').datagrid({
+				        data:dataSet
+				    });
+			     }, 
+			     error : function() { 
+			          alert("服务器异常，请重试！"); 
+			     } 
+			});
+		}
+		
+		function addItem(){
+			$('#dlg').dialog('open');
+		}
+		
+		function deleteItem(){
+            var row = $('#dg').datagrid('getSelected');
+            if (row){
+            	 if(confirm("确定要删除销售单吗？")){
+         			$.ajax( { 
+        			    url:'/model/item/'+row.id,// 跳转到 action 
+        			    type:'delete', 
+        			    cache:false, 
+        			    dataType:'json', 
+        			    success:function(data) {
+        			    	queryAll();
+        			     }, 
+        			     error : function() { 
+        			          alert("服务器异常，请重试！"); 
+        			     } 
+        			});
+            	 }
+            }else{
+            	alert("请选择销售单！");
+            }
+		}
+		
+		function saveDialog(){
+			$.ajax( { 
+			    url:'/model/item',// 跳转到 action 
+			    type:'post', 
+			    cache:false, 
+			    data:{
+			    	number:$('#saleNumber').val(),
+			    	type:$('#saleType').val()
+			    },
+			    dataType:'json', 
+			    success:function(data) {
+			    	queryAll();
+			    	
+				    $('#saleNumber').val("");
+				    $('#saleType').val("");
+					$('#dlg').dialog('close');
+			     }, 
+			     error : function() { 
+			          alert("服务器异常，请重试！"); 
+			     } 
+			});
+		}
+		
+		</script>
+		
+	    <div id="dlg" class="easyui-dialog" closed="true" title="创建销售单" style="width:400px;height:200px;padding:10px;" data-options="
+                iconCls: 'icon-save',
+                buttons: [{
+                    text:'确定',
+                    handler:function(){
+                    	saveDialog();
+                    }
+                },{
+                    text:'取消',
+                    handler:function(){
+						$('#dlg').dialog('close');
+                    }
+                }]
+            ">
+            <div Style="margin-top:5px;">
+				产品名称：
+				<input type="text" id="saleCode" value="product1" style="width:75%"/> 
+            </div>
+            <div Style="margin-top:5px;">
+				销售阶段：
+			    <select id="saleType" style="width:75%">
+			     	<option value="purpose" selected="selected">purpose</option>   
+			       	<option value="business">business</option>   
+			       	<option value="subscribe">subscribe</option>   
+			       	<option value="complete">complete</option>   
+			    </select>
+            </div>
+            <div Style="margin-top:5px;">
+            	销售金额：
+            	<input id="saleNumber" type="text" style="width:75%"/>
+            </div>
+	    </div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+spring.datasource.driverClassName: com.mysql.jdbc.Driver
+spring.datasource.url: ${db.url}
+spring.datasource.username: ${db.user}
+spring.datasource.password: ${db.password}
+application.sales.month.message: ${application.sales.month.message}

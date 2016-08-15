@@ -1,0 +1,35 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>销售单信息</title>
+</head>
+<body>
+	<h1 layout:fragment="header">销售单信息</h1>
+	<div layout:fragment="content" class="container">
+		<div class="alert alert-success" th:if="${globalMessage}"
+			th:text="${globalMessage}">Some Success message</div>
+		<div class="pull-right">
+			<a th:href="@{/list}" href="list.html"> 返回列表  </a>
+		</div>
+		<dl>
+			<dt>销售单ID：</dt>
+			<dd id="id" th:text="${message.id}">123</dd>
+			<dt>产品名称：</dt>
+			<dd id="productName" th:text="${message.product.displayName}">123</dd>
+			<dt>销售阶段：</dt>
+			<dd id="type" th:text="${message.type}">123</dd>
+			<dt>销售额：</dt>
+			<dd id="number" th:text="${message.number}">123</dd>
+			<dt>更新时间：</dt>
+			<dd id="created" th:text="${#calendars.format(message.updateDate)}">
+				July 11, 2012 2:17:16 PM CDT</dd>
+		</dl>
+		<div class="pull-left">
+			<a href="messages" th:href="@{'/item/' + ${message.id} + '/delete'}"  th:method="DELETE">
+				删除 </a> | <a href="form.html"
+				th:href="@{'/item/' + ${message.id} + '/modify'}" th:method="POST"> 更新 </a>
+		</div>
+	</div>
+</body>
+</html>

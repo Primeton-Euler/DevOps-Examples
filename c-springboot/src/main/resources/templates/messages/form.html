@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>销售单</title>
+</head>
+<body>
+	<h1 layout:fragment="header">销售单</h1>
+	<div layout:fragment="content" class="container">
+		<form id="messageForm" th:action="@{/(item)}" th:object="${message}"
+			action="#" method="post">
+			<div th:if="${#fields.hasErrors('*')}" class="alert alert-error">
+				<p th:each="error : ${#fields.errors('*')}" th:text="${error}">
+					Validation error</p>
+			</div>
+			<div class="pull-right">
+				<a th:href="@{/list}" href="messages.html"> 返回列表 </a>
+			</div>
+				<label for="type">销售单ID：</label> 
+				<input type="text" th:field="*{id}" readonly="readonly"/> 
+				<label for="type">产品名称：Product</label>
+				<input type="text" readonly="readonly" value="Product1"/> 
+				<label>销售阶段：</label> 
+		        <select th:field="*{type}">   
+		        	<option value="purpose" selected="selected">purpose</option>   
+		        	<option value="business">business</option>   
+		        	<option value="subscribe">subscribe</option>   
+		        	<option value="complete">complete</option>   
+		        </select>
+				<label for="type">销售额：</label> 
+				<input type="text" th:field="*{number}" /> 
+			<div class="form-actions">
+				<input type="submit" value="Save" />
+			</div>
+		</form>
+	</div>
+</body>
+</html>
