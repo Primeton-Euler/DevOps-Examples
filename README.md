@@ -27,6 +27,8 @@
   
 ## Configuration injection items  
   
+打包某个组件之前请先配置该组件，配置项如下所示：（部分配置项有默认值，具体参考项目源码）  
+  
 ### (1) c-springboot  
   
 `db.url`  
