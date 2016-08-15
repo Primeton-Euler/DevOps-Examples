@@ -1,1 +1,0 @@
-# static resource files (html/js/images/etc)
