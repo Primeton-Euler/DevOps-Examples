@@ -24,6 +24,17 @@
 `git commit -m "Update: commit source code"`  
 `git push`  
   
+也可以从github仓库`https://github.com/Primeton-Euler/DevOps-Examples.git`首页下载源码包：  
+  
+  
+<img src="README/source.png" />  
+  
+  
+`# or use curl/wget linux command tool`
+`curl https://codeload.github.com/Primeton-Euler/DevOps-Examples/zip/master -O /tmp/DevOps-Examples.zip`  
+`unzip /tmp/DevOps-Examples.zip -d ~/git/`  
+`# ...`  
+  
   
 ## Configuration injection items  
   
