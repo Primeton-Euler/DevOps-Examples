@@ -11,14 +11,14 @@
   
 ## Download DevOps Example Project
 
-[https://github.com/Primeton-Euler/DevOps-Examples](https://github.com/Primeton-Euler/DevOps-Examples)  
+[https://github.com/Primeton-Euler/DevOps-Examples.git](https://github.com/Primeton-Euler/DevOps-Examples.git)  
   
 `cd ~/DevOps/git`  
 `git clone https://github.com/Primeton-Euler/DevOps-Examples.git`  
 `rm -rf DevOps-Examples/.git`  
 `cp DevOps-Examples/* tenant-abc-test/`  
   
-`# commit source code` 
+`# commit source code`  
 `cd ~/DevOps/git/tenant-abc-test`  
 `git add .`  
 `git commit -m "Update: commit source code"`  
@@ -29,7 +29,7 @@
   
 ### (1) c-springboot  
   
-`db.url`
+`db.url`  
 `db.user`  
 `db.password`  
 `home.title`  
@@ -64,3 +64,6 @@
 `|- c-frontapp -> ${C组件编码}`  
 `|- .git`  
 `|- ...`  
+  
+你还可以根据自己的项目需要继续添加其它组件。  
+  
