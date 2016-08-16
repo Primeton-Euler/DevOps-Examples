@@ -73,10 +73,15 @@
 `# Source Code Directory`  
 `|- pom.xml -> module改为各个组件编码`  
 `|- c-springboot -> ${A组件编码}`  
-`|- c-war -> ${B组建编码}`  
+`|- c-war -> ${B组件编码}`  
 `|- c-frontapp -> ${C组件编码}`  
 `|- .git`  
 `|- ...`  
   
 你还可以根据自己的项目需要继续添加其它组件。  
+  
+  
+## Other  
+  
+为方便测试（节约时间）c-springboot示例应用数据源启动自初始化，无需手动拷贝脚本执行。  
   
