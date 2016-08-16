@@ -16,7 +16,7 @@
 `cd ~/DevOps/git`  
 `git clone https://github.com/Primeton-Euler/DevOps-Examples.git`  
 `rm -rf DevOps-Examples/.git`  
-`cp DevOps-Examples/* tenant-abc-test/`  
+`cp -r DevOps-Examples/* tenant-abc-test/`  
   
 `# commit source code`  
 `cd ~/DevOps/git/tenant-abc-test`  
