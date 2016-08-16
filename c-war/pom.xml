@@ -6,6 +6,6 @@
 		<artifactId>devops-examples</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>c-war</artifactId>
+	<artifactId>war</artifactId>
 	<packaging>war</packaging>
 </project>

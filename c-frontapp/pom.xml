@@ -5,7 +5,7 @@
     <artifactId>devops-examples</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
-  <artifactId>c-frontapp</artifactId>
+  <artifactId>frontapp</artifactId>
   <packaging>pom</packaging>
 	<build>
 		<plugins>
