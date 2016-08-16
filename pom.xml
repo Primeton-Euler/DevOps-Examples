@@ -7,10 +7,11 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
-        
         <module>c-springboot</module>
-        
         <module>c-frontapp</module>
         <module>c-war</module>
+        <!-- 
+        <module>c-runnablejar</module>
+         -->
     </modules>
 </project>
