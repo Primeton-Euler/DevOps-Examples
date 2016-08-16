@@ -30,7 +30,7 @@
 <img src="README/source.png" />  
   
   
-`# or use curl/wget linux command tool`
+`# or use curl/wget linux command tool`  
 `curl https://codeload.github.com/Primeton-Euler/DevOps-Examples/zip/master -O /tmp/DevOps-Examples.zip`  
 `unzip /tmp/DevOps-Examples.zip -d ~/git/`  
 `# ...`  
@@ -42,9 +42,9 @@
   
 ### (1) c-springboot  
   
-`db.url`  
-`db.user`  
-`db.password`  
+`db.url (*)`  
+`db.user (*)`  
+`db.password (*)`  
 `home.title`  
   
 ### (2) c-frontapp  
