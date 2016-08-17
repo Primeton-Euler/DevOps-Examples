@@ -5,6 +5,8 @@
 <body>
 ${body}
 <br/>
+<h1><a href="/hi?who=DevOps">Call HttpServlet</a></h1>
+<br/>
 <h1>
 	key1=${key1}
 </h1>
