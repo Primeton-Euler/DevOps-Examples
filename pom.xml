@@ -10,8 +10,6 @@
         <module>c-springboot</module>
         <module>c-frontapp</module>
         <module>c-war</module>
-        <!-- 
         <module>c-runnablejar</module>
-         -->
     </modules>
 </project>
