@@ -15,4 +15,4 @@ if [ -z "`which zip`" ]; then
 fi
 
 cd ${CONTEXT_PATH}/target
-zip runnablejar-1.0.0-SNAPSHOT.zip runnablejar-1.0.0-SNAPSHOT-jar-with-dependencies.jar
+zip runnablejar-1.0.0-SNAPSHOT.zip *-jar-with-dependencies.jar
