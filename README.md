@@ -77,7 +77,7 @@
   
 ## Multi-Component
   
-在 test产品下再新建1-3个组件，可选择c-war（war类型）、c-frontapp（frontapp类型）、c-runnablejar（springboot类型），`https://github.com/Primeton-Euler/DevOps-Examples.git`示例代码库已经包含该这2个组件的示例代码；可以直接在页面上编译打包这两个组件。如果你新建的组件的Code不是上面写的这些，请作如下修改：  
+在 test产品下再新建1-3个组件，可选择 `c-war（war类型）、c-frontapp（frontapp类型）、c-runnablejar（springboot类型）`， `https://github.com/Primeton-Euler/DevOps-Examples.git` 示例代码库已经包含该这2个组件的示例代码；可以直接在页面上编译打包这两个组件。如果你新建的组件的编码不是默认值  `c-springboot、c-war、c-frontapp、c-runnablejar` ，请修改目录结构和根pom.xml文件：  
   
 `# Source Code Directory`  
 `|- pom.xml -> module改为各个组件编码`  
@@ -98,6 +98,6 @@ c-runnablejar示例不是真正的springboot项目，只要是满足以下几点
   
 `(1) /META-INF/MANIFEST.MF 定义了JAR启动类Main-Class;`  
 `(2) 包含其运行所需依赖的所有类,可以使用 maven-assembly-plugin(jar-with-dependencies) 插件来编译FatJar,springboot有自己的打包插件;`  
-`(3) 服务对外提供服务端口一定是8080;`  
+`(3) 服务对外提供服务端口一定是8080,允许有多个端口,但只有8080对外能访问;`  
 `(4) Jar要支持JRE1.8环境下运行;`  
     
