@@ -100,4 +100,8 @@ c-runnablejar示例不是真正的springboot项目，只要是满足以下几点
 `(2) 包含其运行所需依赖的所有类,可以使用 maven-assembly-plugin(jar-with-dependencies) 插件来编译FatJar,springboot有自己的打包插件;`  
 `(3) 服务对外提供服务端口一定是8080,允许有多个端口,但只有8080对外能访问;`  
 `(4) Jar要支持JRE1.8环境下运行;`  
-    
+  
+## Custom    
+  
+[https://github.com/Primeton-Euler/Multi-Wars](https://github.com/Primeton-Euler/Multi-Wars)
+  
