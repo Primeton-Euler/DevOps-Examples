@@ -1,6 +1,6 @@
 spring:
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    password: ${db.user}
+    password: ${db.password}
     url: "${db.url}"
-    username: ${db.password}
+    username: ${db.user}
