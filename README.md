@@ -3,7 +3,7 @@
   
 ## Usage  
   
-使用租户abc登陆SE门户，新建一个产品test，在这个产品下新建一个组件（springboot类型），组件Code为 c-springboot，查看产品的Git库地址，克隆仓库到本地，参考下面命令：  
+使用租户`abc`登陆`PORTAL-FE`门户，新建一个产品`test`，在这个产品下新建一个组件（`springboot类型`），组件编码为 `c-springboot`，查看产品的`Git库地址`，克隆仓库到本地，参考下面命令：  
   
 `mkdir -p ~/DevOps/git`  
 `cd ~/DevOps/git`  
@@ -93,8 +93,8 @@
   
 ## Other  
   
-为方便测试（节约时间）c-springboot示例应用数据源启动自初始化，无需手动拷贝脚本执行。  
-c-runnablejar示例不是真正的springboot项目，只要是满足以下几点的FatJar，都可以选择springboot类型组件：  
+为方便测试（节约时间）`c-springboot`示例应用数据源启动自初始化，无需手动拷贝脚本执行。  
+`c-runnablejar`示例不是真正的`springboot`项目，只要是满足以下几点的`FatJar`，都可以选择`springboot`类型组件：  
   
 `(1) /META-INF/MANIFEST.MF 定义了JAR启动类Main-Class;`  
 `(2) 包含其运行所需依赖的所有类,可以使用 maven-assembly-plugin(jar-with-dependencies) 插件来编译FatJar,springboot有自己的打包插件;`  
