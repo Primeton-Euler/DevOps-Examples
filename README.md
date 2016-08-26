@@ -3,7 +3,7 @@
   
 ## Usage  
   
-使用租户abc登陆SE门户，新建一个产品test，在这个产品下新建一个组件（springboot类型），组件Code为 c-springboot，查看产品的Git库地址，克隆仓库到本地，参考下面命令：  
+使用租户abc登陆FE门户，新建一个产品test，在这个产品下新建一个组件（springboot类型），组件Code为 c-springboot，查看产品的Git库地址，克隆仓库到本地，参考下面命令：  
   
 `mkdir -p ~/DevOps/git`  
 `cd ~/DevOps/git`  
