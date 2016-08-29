@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>${title}</title>
+    <script type="text/javascript">
+    	window.open("page/index.html");
+    </script>
 </head>
 <body>
+    <h1>
+    	<a href="page/index.html">Bootstrap example</a>
+    </h1>
+    <h1>
+    	<a href="hello">HelloServlet</a>
+    </h1>
+    <h1>
+    	<a href="hello.jsp">Hello JSP</a>
+    </h1>
     <h1>${body}</h1>
     <h1>key1 = ${key1}</h1>
     <h1>key2 = ${key2}</h1>

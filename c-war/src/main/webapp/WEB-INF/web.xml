@@ -25,5 +25,18 @@
         <welcome-file>index.htm</welcome-file>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+    
+    <servlet>
+    	<servlet-name>HelloServlet</servlet-name>
+    	<servlet-class>org.gocome.devops.example.HelloServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+    	<servlet-name>HelloServlet</servlet-name>
+    	<url-pattern>/hello</url-pattern>
+    </servlet-mapping>
 
+	<listener>
+		<listener-class>org.gocome.devops.example.HelloContextListener</listener-class>
+	</listener>
 </web-app>
