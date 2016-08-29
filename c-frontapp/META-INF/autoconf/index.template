@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>${title}</title>
+    <script type="text/javascript">
+    	window.open("page/index.html");
+    </script>
 </head>
 <body>
     <h1>
