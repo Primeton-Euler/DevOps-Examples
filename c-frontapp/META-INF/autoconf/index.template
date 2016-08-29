@@ -5,6 +5,9 @@
     <title>${title}</title>
 </head>
 <body>
+    <h1>
+    	<a href="page/index.html">Welcome to use DevOps Cloud</a>
+    </h1>
     <h1>${body}</h1>
     <h1>key1 = ${key1}</h1>
     <h1>key2 = ${key2}</h1>
